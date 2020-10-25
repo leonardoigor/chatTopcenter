@@ -3,8 +3,8 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "chattopWay",
-            "database": "${workspaceFolder:chatTopcenter}/backend/src/database/database.sqlite"
+            "database": "${workspaceFolder:chatTopcenter}/backend/src/database/database.sqlite",
+            "name": "11"
         }
     ],
     "sqltools.useNodeRuntime": true

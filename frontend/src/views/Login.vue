@@ -56,7 +56,7 @@ export default {
         .then((r) => {
           console.log(r);
           this.component.log = true;
-          this.component.user = r;
+          this.component.user = r.data;
         })
         .finally(() => {
           this.loading = false;

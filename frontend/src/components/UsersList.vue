@@ -14,7 +14,7 @@
       </v-toolbar>
 
       <v-list subheader>
-        <v-subheader>Recent chat</v-subheader>
+        <v-subheader>All Users online</v-subheader>
 
         <v-list-item v-for="chat in component.recent" :key="chat.title">
           <v-list-item-avatar>
@@ -88,5 +88,8 @@ div[role="list"] {
 .header {
   border-radius: 0;
   box-shadow: none !important;
+}
+.v-toolbar__content {
+  border-bottom: none;
 }
 </style>

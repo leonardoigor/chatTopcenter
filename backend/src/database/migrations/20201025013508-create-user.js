@@ -13,6 +13,8 @@ module.exports = {
       },
       profission: {
         type: Sequelize.STRING
+      }, avatar: {
+        type: Sequelize.STRING
       },
       online: {
         type: Sequelize.BOOLEAN
