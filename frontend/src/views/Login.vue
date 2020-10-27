@@ -12,10 +12,12 @@
                 <v-toolbar-items />
               </v-toolbar>
               <v-card>
+                {{ err }}
                 <v-card-text class="pt-4">
                   <div>
                     <v-form v-model="valid" ref="form">
                       <v-text-field
+                        :disabled="loading"
                         label="Enter your e-mail address"
                         v-model="name"
                         :rules="[() => !!name]"
@@ -52,12 +54,13 @@ export default {
   methods: {
     submit() {
       this.loading = true;
-      Axios.post("http://localhost:3333/create", { name: this.name })
+      Axios.post("http://192.168.1.106:3000/create", { name: this.name })
         .then((r) => {
           console.log(r);
           this.component.log = true;
           this.component.user = r.data;
         })
+        .catch((r) => (this.err = r.message))
         .finally(() => {
           this.loading = false;
           //   alert();
@@ -68,6 +71,7 @@ export default {
     loading: false,
     valid: false,
     name: "",
+    err: "",
   }),
   props: {
     component: Object(),

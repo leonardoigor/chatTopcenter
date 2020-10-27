@@ -11,17 +11,21 @@ console.log(db.sequelize.models, 'data');
 
 Router.post('/create', async (req, res) => {
     console.log(req.body, 'body');
-    const hasUser = await User.findAll({ where: { name: req.body.name } });
-    if (!hasUser.length) {
-        const user = await User.create({
-            ...req.body
-        })
-        res.send(user)
-    } else {
+    try {
+        const hasUser = await User.findAll({ where: { name: req.body.name } });
+        if (!hasUser.length) {
+            const user = await User.create({
+                ...req.body
+            })
+            res.send(user)
+        } else {
 
-        res.send(hasUser[0])
+            res.send(hasUser[0])
+        }
+
+    } catch (error) {
+        res.status(400).send()
     }
-
 
 })
 
